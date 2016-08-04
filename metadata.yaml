@@ -1,0 +1,37 @@
+_repo: The-Historical-Nights-Entertainment--First-Series_2636
+_version: 0.0.1
+creator:
+  author:
+    agent_name: Sabatini, Rafael
+    alias: Sabatini, R.
+    birthdate: 1875
+    deathdate: 1950
+    gutenberg_agent_id: '640'
+    url: http://www.gutenberg.org/2009/agents/640
+    wikipedia: http://en.wikipedia.org/wiki/Rafael_Sabatini
+description: ''
+gutenberg_issued: '2001-05-01'
+gutenberg_type: Text
+identifiers:
+  gutenberg: '2636'
+language: en
+publisher: Project Gutenberg
+rights: Public domain in the USA.
+rights_url: http://creativecommons.org/about/pdm
+subjects:
+- !lcsh 'Historical fiction, English'
+- !lcsh 'Europe -- Social life and customs -- Fiction'
+- !lcc 'PR'
+- GITenberg
+tableOfContents: 'The night of Holyrood: the murder of David Rizzio -- The night of
+  Kirk o''Field: the murder of Darnley -- The night of betrayal: Antonio Perez and
+  Philip II of Spain -- The night of charity: the case of the Lady Alice Lisle --
+  The night of massacre: the story of the St. Bartholomew -- The night of witchcraft:
+  Louis XIV and Madame de Montespan -- The night of gems: the affairs of the queen''s
+  necklace -- The night of terror: the drownings at Nantes under Carrier -- The night
+  of nuptials: Charles the Bold and Sapphira Danvelt -- The night of stranglers: Giovanna
+  of Naples and Andreas of Hungary -- The night of hate: the murder of the Duke of
+  Gandia -- The night of escape: Casanova''s escape from the Piombi -- The night of
+  masquerade: the assassination of Gustavus III of Sweden.'
+title: 'The Historical Nights'' Entertainment: First Series'
+url: http://www.gutenberg.org/ebooks/2636
