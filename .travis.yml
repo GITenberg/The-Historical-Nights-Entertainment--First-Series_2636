@@ -1,0 +1,61 @@
+sudo: required
+dist: trusty
+language: ruby
+
+before_install:
+before_install:
+- gem install asciidoctor -v 1.5.2
+- gem install tilt
+- sudo pip install git+https://github.com/gitenberg-dev/gitberg
+- sudo pip install pillow
+- sudo pip install cssutils
+- sudo pip install docutils
+- sudo pip install roman
+- sudo pip install git+https://github.com/gitenberg-dev/pg-epubmaker
+script:
+- VERSION=`ruby -e "require 'yaml'; meta = YAML.load_file('metadata.yaml'); puts meta['_version'];"`
+- git clone https://github.com/gitenberg-dev/asciidoctor-htmlbook.git
+- sudo pip install -r asciidoctor-htmlbook/gitberg-machine/requirements.txt
+
+- /usr/bin/python -c "from gitenberg import travis; travis.build_epub()"
+- ebook-convert book.epub book.mobi
+- xvfb-run ebook-convert book.epub book.pdf
+branches:
+  only:
+  - master
+notifications:
+  webhooks:
+    urls:
+      - https://unglue.it/api/travisci/webhook
+    on_success: always
+    on_failure: never
+    on_start: never
+deploy:
+  skip_cleanup: true
+  provider: releases
+  api_key:
+    secure: bkX3uDR+WU3Xt0/2BfbIH0UHHdyPpmW3uyaUEMziHNPv0SELl4ePMs9YxAot5mKDMXU2/AHBeBlhQtmBFIQcFehqqusW2bcAFye+YBtEBwdFdlV+2WYmIt56gAM0ygRQvKGzrxl/G29i9hG9wifaB6YFR4QHCE1v/M07xILoZwx4h5Ht2ei1JD88VDqvCgFuMb3sz5GeNy34cSa9jUmXhzqAtYbtsVaoiAOpzdMGyHtj/nIAxXL4cx9ThFH/7eHUBmQbjGjrQ5j9Oz94WeZremGHuXZpyulS1xQMtraTv0dkz7dMh296h7N5vN3C9CHQwY8KUwcI6Xn5rC/DRFeh4NfUQtAB1QC2swzZcVeCENrmtDcEE1UiVXDHY0gUjbmHTISjqh8Z0U44LJbWwzmRgB8IzHmwyjUHx8ZG7/NAiVBA+2LjBpamYp5aQC+5OpGt86hpjT4peMshsRjVh1US6yoF1ArcKtwdruNCCMh6kYzXpK37FMbJofzAEGnAEVNCEll6cimzboIsuXf1n/4zmSL5ArBhvtRQZB0/b+LNPJZ7GFvajAM81MfrS4YYob4AiRGuxP0rJNUohQy3DDYOos/L8wpdOF/ks1Zjjq2PL9yIeNcW0Mcg5n9lNhgc9+2aP6e+xlGDItLUWktzbR53lQ6fCTFlxXhHERLhzqomOHI=
+  file:
+    - book.epub
+    - book.mobi
+    - book.pdf
+  "on":
+    repo: GITenberg/The-Historical-Nights-Entertainment--First-Series_2636
+addons:
+  apt:
+    packages:
+    - xsltproc
+    - xvfb
+    - calibre
+    - python-pip
+    - git
+    - python-dev
+    - libjpeg-dev
+    - libpng-dev
+    - libfreetype6
+    - libfreetype6-dev
+    - zlib1g-dev
+    - python-lxml
+    - libxml2-dev
+    - libxslt1-dev
+    - tidy
